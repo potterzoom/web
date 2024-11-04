@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Gestión de Redes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="top-bar">
+                <h1 class="title">Gestión de Redes</h1>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        <span>+34 912 345 678</span>
+                    </div>
+                    <div class="contact-item">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <span>contacto@gestionredes.com</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://twitter.com/gestionredes" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://linkedin.com/company/gestionredes" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://facebook.com/gestionredes" title="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                    <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                    <li><a href="{{ url_for('contacto') }}">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container my-4">
+        <!-- Hero Section -->
+        <div class="hero">
+            <h2 class="text-center mb-5" style="color: #007bff;">Sistema de Monitoreo Inteligente</h2>
+            <svg class="decoration" width="200" height="200" viewBox="0 0 200 200">
+                <defs>
+                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#4CAF50;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#2196F3;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <circle cx="100" cy="100" r="80" fill="none" stroke="url(#grad1)" stroke-width="4">
+                    <animate attributeName="r" values="70;80;70" dur="2s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="100" cy="100" r="40" fill="url(#grad1)" opacity="0.5">
+                    <animate attributeName="opacity" values="0.5;0.8;0.5" dur="2s" repeatCount="indefinite"/>
+                </circle>
+            </svg>
+        </div>
+
+        <!-- Features Section -->
+        <div class="features">
+            <div class="feature-card">
+                <h3>Monitoreo en Tiempo Real</h3>
+                <p>Visualiza datos críticos en tiempo real con actualizaciones instantáneas y alertas personalizables para mantener tu sistema siempre bajo control.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Análisis Predictivo</h3>
+                <p>Utiliza algoritmos avanzados de machine learning para predecir tendencias y anticipar posibles problemas antes de que ocurran.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Optimización de Recursos</h3>
+                <p>Maximiza la eficiencia de tus recursos con recomendaciones automáticas basadas en patrones de uso y demanda.</p>
+            </div>
+        </div>
+
+        <!-- Call to Action Buttons -->
+        <div class="cta-buttons">
+            <a href="{{ url_for('dashboard') }}" class="button button-primary">Acceder al Dashboard</a>
+            <a href="{{ url_for('contacto') }}" class="button button-secondary">Contactar Soporte</a>
+        </div>
+
+        <!-- Características Principales -->
+        <section id="caracteristicas" class="my-5">
+        <h2 class="text-center mb-5" style="color: #007bff;">Características Principales</h2>
+
+        <!-- Fila Superior -->
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="card">
+                    <h3><i class="fas fa-server"></i> Cargas de Servidores</h3>
+                    <div class="chart-container">
+                        <canvas id="serverLoads"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <h3><i class="fas fa-network-wired"></i> Latencia de Red</h3>
+                    <div class="chart-container">
+                        <canvas id="networkLatency"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <h3><i class="fas fa-traffic-light"></i> Gestión de Congestión</h3>
+                    <div class="chart-container">
+                        <canvas id="congestionManagement"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fila Media -->
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="card">
+                    <h3><i class="fas fa-bell"></i> Alertas Predictivas</h3>
+                    <div class="chart-container">
+                        <canvas id="predictiveAlerts"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <h3><i class="fas fa-clock"></i> Tiempos de Respuesta</h3>
+                    <div class="chart-container">
+                        <canvas id="responseTimes"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <h3><i class="fas fa-box-open"></i> Pérdida de Paquetes</h3>
+                    <div class="chart-container">
+                        <canvas id="packetLoss"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fila Inferior -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <h3><i class="fas fa-exchange-alt"></i> Asignación de Servidores</h3>
+                    <div class="chart-container">
+                        <canvas id="serverAllocation"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <h3><i class="fas fa-chart-line"></i> Rendimiento Global del Sistema</h3>
+                    <div class="chart-container">
+                        <canvas id="systemPerformance"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+
+        <!-- Sección de Artículos Técnicos -->
+        <section class="articles my-5">
+        <div class="container">
+        <h2 class="text-center mb-5" style="color: #007bff;">Artículos Técnicos</h2>
+        <div class="row gx-4 gy-4">
+            <!-- Artículo 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow-sm h-100">
+                    <img src="{{ url_for('static', filename='images/1.jpg') }}" class="card-img-top" alt="Visualización del estado de los servidores y la red en tiempo real">
+                    <div class="card-body">
+                        <h5 class="card-title">Monitoreo en Tiempo Real</h5>
+                        <p>Visualiza el estado actual de tus servidores y la red en tiempo real...</p>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalArticulo1">Leer más</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Artículo 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow-sm h-100">
+                    <img src="{{ url_for('static', filename='images/2.jpg') }}" class="card-img-top" alt="Representación gráfica del análisis predictivo">
+                    <div class="card-body">
+                        <h5 class="card-title">Análisis Predictivo</h5>
+                        <p>Anticipa posibles problemas en los servidores gracias a nuestros algoritmos...</p>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalArticulo2">Leer más</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Artículo 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow-sm h-100">
+                    <img src="{{ url_for('static', filename='images/3.jpg') }}" class="card-img-top" alt="Gráficos de visualización interactiva de datos">
+                    <div class="card-body">
+                        <h5 class="card-title">Visualizaciones Interactivas</h5>
+                        <p>Explora gráficos y diagramas intuitivos que facilitan el análisis de rendimiento...</p>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalArticulo3">Leer más</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </section>
+
+        <!-- Modales con el contenido completo de cada artículo -->
+        <!-- Modal Artículo 1 -->
+        <div class="modal fade" id="modalArticulo1" tabindex="-1" aria-labelledby="modalArticulo1Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalArticulo1Label">Monitoreo en Tiempo Real</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <p>Nuestra aplicación de monitoreo en tiempo real permite visualizar el estado de los servidores y la red con métricas actualizadas constantemente. Esto te permite:</p>
+                <ul>
+                    <li>Detectar de inmediato cualquier interrupción en el servicio.</li>
+                    <li>Controlar el rendimiento de la red y los servidores en todo momento.</li>
+                    <li>Tomar decisiones rápidas basadas en datos actualizados.</li>
+                </ul>
+                <p>Las métricas incluyen el uso de CPU, memoria, tráfico de red, entre otras.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+        </div>
+        </div>
+
+        <!-- Modal Artículo 2 -->
+        <div class="modal fade" id="modalArticulo2" tabindex="-1" aria-labelledby="modalArticulo2Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalArticulo2Label">Análisis Predictivo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <p>El análisis predictivo utiliza algoritmos avanzados para predecir posibles problemas en los servidores y la red antes de que ocurran. Esto se basa en:</p>
+                <ul>
+                    <li>Análisis de datos históricos para identificar patrones.</li>
+                    <li>Predicciones basadas en la carga actual y la tendencia de uso.</li>
+                    <li>Alertas tempranas que permiten al equipo técnico actuar proactivamente.</li>
+                </ul>
+                <p>Este análisis reduce el tiempo de inactividad y mejora la estabilidad de la red.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+        </div>
+        </div>
+
+        <!-- Modal Artículo 3 -->
+        <div class="modal fade" id="modalArticulo3" tabindex="-1" aria-labelledby="modalArticulo3Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalArticulo3Label">Visualizaciones Interactivas</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <p>Las visualizaciones interactivas permiten explorar los datos de rendimiento y la carga de la red de forma intuitiva. Puedes:</p>
+                <ul>
+                    <li>Visualizar gráficos de rendimiento en tiempo real.</li>
+                    <li>Explorar tendencias históricas para analizar cambios en la red.</li>
+                    <li>Personalizar las vistas para resaltar las métricas más importantes.</li>
+                </ul>
+                <p>Estas visualizaciones facilitan la comprensión de los datos y mejoran la toma de decisiones.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+        </div>
+        </div>
+
+        <section id="faqs" class="my-5">
+        <div class="container">
+        <h2 class="text-center mb-5" style="color: #007bff;">Preguntas Frecuentes</h2>
+
+        <div class="faq-container">
+        <div class="category">Sobre la Plataforma</div>
+        
+        <!-- Pregunta 1 -->
+        <div class="faq-item">
+            <div class="faq-question">¿Qué es y cómo funciona la plataforma?</div>
+            <div class="faq-answer">
+                Nuestra plataforma es una solución integral para el monitoreo y optimización del rendimiento web. Funciona mediante la recopilación y análisis en tiempo real de métricas clave, proporcionando insights accionables para mejorar la experiencia del usuario y el rendimiento general del sitio.
+            </div>
+        </div>
+        
+        <!-- Pregunta 2 -->
+        <div class="faq-item">
+            <div class="faq-question">¿Qué navegadores son compatibles?</div>
+            <div class="faq-answer">
+                La plataforma es compatible con todos los navegadores modernos incluyendo:
+                <ul>
+                    <li>Google Chrome (última versión y dos versiones anteriores)</li>
+                    <li>Mozilla Firefox</li>
+                    <li>Safari</li>
+                    <li>Microsoft Edge</li>
+                    <li>Opera</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="category">Optimización del Rendimiento</div>
+        
+        <!-- Pregunta 3 -->
+        <div class="faq-item">
+            <div class="faq-question">¿Cómo puedo mejorar el tiempo de carga de mi sitio?</div>
+            <div class="faq-answer">
+                Para mejorar el tiempo de carga, recomendamos:
+                <ul>
+                    <li>Optimizar imágenes y recursos</li>
+                    <li>Implementar caché del navegador</li>
+                    <li>Minimizar archivos CSS y JavaScript</li>
+                    <li>Utilizar una CDN</li>
+                    <li>Reducir las solicitudes HTTP</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="category">Configuración de Alertas</div>
+        
+        <!-- Pregunta 4 -->
+        <div class="faq-item">
+            <div class="faq-question">¿Cómo configuro alertas personalizadas?</div>
+            <div class="faq-answer">
+                Para configurar alertas personalizadas:
+                <ol>
+                    <li>Accede a la sección "Configuración de Alertas"</li>
+                    <li>Selecciona "Nueva Alerta"</li>
+                    <li>Define los umbrales y métricas a monitorear</li>
+                    <li>Establece los canales de notificación</li>
+                    <li>Guarda la configuración</li>
+                </ol>
+            </div>
+        </div>
+        </div>
+        </div>
+        </section>
+
+        <section id="planes" class="my-5">
+        <div class="container">
+        <!-- Título de la Sección -->
+        <h3 class="text-center mb-5 text-primary">Planes y Precios</h3>
+        
+        <div class="row">
+            <!-- Plan Básico -->
+            <div class="col-md-4 mb-4">
+                <div class="card border-light shadow-sm h-100 plan-card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Plan Básico</h5>
+                        <p class="card-text">Incluye monitoreo en tiempo real y análisis básicos de rendimiento.</p>
+                        <h6 class="price text-primary">$29/mes</h6>
+                        <a href="#" class="btn btn-outline-primary mt-3">Elegir Plan</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Plan Avanzado (destacado) -->
+            <div class="col-md-4 mb-4">
+                <div class="card border-primary shadow-sm h-100 plan-card featured-plan">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Plan Avanzado</h5>
+                        <p class="card-text">Incluye todas las características del plan básico, más análisis avanzados y soporte prioritario.</p>
+                        <h6 class="price text-primary">$49/mes</h6>
+                        <a href="#" class="btn btn-primary mt-3">Elegir Plan</a>
+                    </div>
+                    <!-- Etiqueta de Popular -->
+                    <div class="ribbon-wrapper">
+                        <div class="ribbon bg-primary text-white">Popular</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Plan Empresarial -->
+            <div class="col-md-4 mb-4">
+                <div class="card border-light shadow-sm h-100 plan-card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Plan Empresarial</h5>
+                        <p class="card-text">Solución completa con personalización, análisis en tiempo real y soporte 24/7.</p>
+                        <h6 class="price text-primary">$99/mes</h6>
+                        <a href="#" class="btn btn-outline-primary mt-3">Elegir Plan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+    <div class="container">
+        <!-- Redes sociales -->
+        <div class="social-icons">
+            <a href="#" class="social-link">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-link">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-link">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-link">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </div>
+        
+        <!-- Copyright -->
+        <p>&copy; 2024 Gestión de Redes. Todos los derechos reservados.</p>
+    </div>
+    </footer>
+
+    <div class="floating-buttons">
+    <button class="btn-floating" id="whatsappBtn" title="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </button>
+    <button class="btn-floating" id="soporteBtn" title="Soporte Técnico">
+        <i class="fas fa-headset"></i>
+    </button>
+    <button class="btn-floating" id="planesBtn" title="Planes">
+        <i class="fas fa-list"></i>
+    </button>
+    </div>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/faq.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/soporte.js') }}"></script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

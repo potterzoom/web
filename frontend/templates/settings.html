@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuraciones</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+    <div class="header-container">
+        <div class="top-bar">
+            <h1 class="title">Configuraciones</h1>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    <span>+34 912 345 678</span>
+                </div>
+                <div class="contact-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <span>contacto@gestionredes.com</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Barra de navegación -->
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: transparent;">
+            <div class="container">
+                <a class="navbar-brand" href="{{ url_for('admin_dashboard') }}">Panel Admin</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('manage_users') }}">Gestionar Usuarios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('view_statistics') }}">Ver Estadísticas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('settings') }}">Configuraciones</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('logout') }}">Cerrar Sesión</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="container my-5">
+        <!-- Configuraciones Generales -->
+        <section id="general-settings" class="mb-5">
+            <h2 class="section-title">Configuraciones Generales</h2>
+            <form>
+                <div class="form-group mb-3">
+                    <label for="siteName">Nombre del Sitio</label>
+                    <input type="text" class="form-control" id="siteName" placeholder="Ingresa el nombre del sitio" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="adminEmail">Correo Electrónico del Administrador</label>
+                    <input type="email" class="form-control" id="adminEmail" placeholder="Ingresa el correo electrónico del administrador" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Guardar Configuraciones</button>
+            </form>
+        </section>
+
+        <!-- Configuraciones de Seguridad -->
+        <section id="security-settings" class="mb-5">
+            <h2 class="section-title">Configuraciones de Seguridad</h2>
+            <form>
+                <div class="form-group mb-3">
+                    <label for="passwordPolicy">Política de Contraseña</label>
+                    <select class="form-control" id="passwordPolicy" required>
+                        <option value="low">Baja (6 caracteres mínimo)</option>
+                        <option value="medium">Media (8 caracteres, letras y números)</option>
+                        <option value="high">Alta (12 caracteres, letras, números y símbolos)</option>
+                    </select>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="twoFactorAuth">Autenticación de Dos Factores</label>
+                    <select class="form-control" id="twoFactorAuth" required>
+                        <option value="enabled">Activada</option>
+                        <option value="disabled">Desactivada</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Guardar Configuraciones de Seguridad</button>
+            </form>
+        </section>
+
+        <!-- Configuraciones de Notificaciones -->
+        <section id="notification-settings" class="mb-5">
+            <h2 class="section-title">Configuraciones de Notificaciones</h2>
+            <form>
+                <div class="form-group form-check mb-3">
+                    <input type="checkbox" class="form-check-input" id="emailNotifications">
+                    <label class="form-check-label" for="emailNotifications">Recibir Notificaciones por Correo Electrónico</label>
+                </div>
+                <div class="form-group form-check mb-3">
+                    <input type="checkbox" class="form-check-input" id="smsNotifications">
+                    <label class="form-check-label" for="smsNotifications">Recibir Notificaciones por SMS</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Guardar Configuraciones de Notificaciones</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="footer">
+    <div class="container">
+        <!-- Redes sociales -->
+        <div class="social-icons">
+            <a href="#" class="social-link">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-link">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-link">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-link">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </div>
+        
+        <!-- Copyright -->
+        <p>&copy; 2024 Gestión de Redes. Todos los derechos reservados.</p>
+    </div>
+    </footer>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    
+</body>
+</html>
+
